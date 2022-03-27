@@ -52,12 +52,23 @@ class _RandomWordsState extends State<RandomWords> {
               color: alreadySaved ? Colors.red : null,
               semanticLabel: alreadySaved ? 'Remove from saved' : 'Save',
             ),
+            onTap: (){
+              setState(() {
+                if(alreadySaved) {
+                  _saved.remove(_suggestions[index]);
+                } else {
+                  _saved.add(_suggestions[index]);
+                }
+              });
+            }
           );
         },
       ),
     );
     }
   }
+
+
 
 class RandomWords extends StatefulWidget {
   const RandomWords({Key? key}) : super(key: key);
